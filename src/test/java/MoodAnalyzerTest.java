@@ -4,17 +4,27 @@ import org.junit.Test;
 
 public class MoodAnalyzerTest {
     @Test
-    public void testMoodAnalysis1() throws Exception{
-        MoodAnalyzer moodAnalyzer=new MoodAnalyzer();
+    public void testMoodAnalysis1() throws Exception {
+        MoodAnalyzer moodAnalyzer = new MoodAnalyzer();
 
-        String mood=moodAnalyzer.analyseMood("I am in sad mood");
+        String mood = moodAnalyzer.analyseMood("I am in sad mood");
+
+
         Assert.assertThat(mood, CoreMatchers.is("SAD"));
     }
 
     @Test
-    public void testMoodAnalysis2() throws Exception{
+    public void testMoodAnalysis2() throws Exception {
+        MoodAnalyzer moodAnalyzer = new MoodAnalyzer();
+        String mood = moodAnalyzer.analyseMood("I am in any mood");
+
+        Assert.assertThat(mood, CoreMatchers.is("HAPPY"));
+    }
+
+    @Test
+    public void testNullMoodAnalysis() throws Exception{
         MoodAnalyzer moodAnalyzer=new MoodAnalyzer();
-        String mood=moodAnalyzer.analyseMood("I am in any mood");
+        String mood=moodAnalyzer.analyseMood(null);
         Assert.assertThat(mood,CoreMatchers.is("HAPPY"));
     }
 }
