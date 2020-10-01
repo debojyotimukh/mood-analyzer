@@ -15,19 +15,13 @@ public class MoodAnalyzerTest {
 
     @Test
     public void testMoodAnalysis1() throws MoodAnalysisException {
-        //MoodAnalyzer moodAnalyzer = new MoodAnalyzer();
-
         String mood = moodAnalyzer.analyseMood("I am in sad mood");
-
-
         Assert.assertThat(mood, CoreMatchers.is("SAD"));
     }
 
     @Test
     public void testMoodAnalysis2() throws MoodAnalysisException {
-        //MoodAnalyzer moodAnalyzer = new MoodAnalyzer();
         String mood = moodAnalyzer.analyseMood("I am in any mood");
-
         Assert.assertThat(mood, CoreMatchers.is("HAPPY"));
     }
 
@@ -35,15 +29,13 @@ public class MoodAnalyzerTest {
     public void testNullMoodAnalysis() throws MoodAnalysisException {
         exception.expect(MoodAnalysisException.class);
         exception.expectMessage("Null mood exception");
-        //MoodAnalyzer moodAnalyzer = new MoodAnalyzer();
-        String mood = moodAnalyzer.analyseMood(null);
+        moodAnalyzer.analyseMood(null);
     }
 
     @Test
     public void testEmptyMoodAnalysis() throws MoodAnalysisException {
         exception.expect(MoodAnalysisException.class);
         exception.expectMessage("Empty mood exception");
-        //MoodAnalyzer moodAnalyzer=new MoodAnalyzer();
-        String mood = moodAnalyzer.analyseMood("");
+        moodAnalyzer.analyseMood("");
     }
 }
